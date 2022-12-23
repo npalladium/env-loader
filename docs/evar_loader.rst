@@ -1,0 +1,6 @@
+EVar Loader API
+===============
+.. automodule:: evar_loader.evar_loader
+    :members:
+    :undoc-members:
+    :special-members: __call__
