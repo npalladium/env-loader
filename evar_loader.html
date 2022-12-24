@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EVar Loader API &mdash; EVars Loader  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Advanced Usage" href="usage.html" />
+    <link rel="prev" title="QuickStart" href="quickstart.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> EVars Loader
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">QuickStart</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">EVar Loader API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#evar_loader.evar_loader.EVarLoaderError"><code class="docutils literal notranslate"><span class="pre">EVarLoaderError</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#evar_loader.evar_loader.InvalidEnvironmentVariablesError"><code class="docutils literal notranslate"><span class="pre">InvalidEnvironmentVariablesError</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#evar_loader.evar_loader.MissingEnvironmentVariablesError"><code class="docutils literal notranslate"><span class="pre">MissingEnvironmentVariablesError</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#evar_loader.evar_loader.EnvironmentVariable"><code class="docutils literal notranslate"><span class="pre">EnvironmentVariable</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#evar_loader.evar_loader.EnvironmentVariable.__init__"><code class="docutils literal notranslate"><span class="pre">EnvironmentVariable.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#evar_loader.evar_loader.EnvironmentVariable.default_val"><code class="docutils literal notranslate"><span class="pre">EnvironmentVariable.default_val</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#evar_loader.evar_loader.EnvironmentVariable.description"><code class="docutils literal notranslate"><span class="pre">EnvironmentVariable.description</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#evar_loader.evar_loader.EnvironmentVariable.is_required"><code class="docutils literal notranslate"><span class="pre">EnvironmentVariable.is_required</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#evar_loader.evar_loader.EnvironmentVariable.name"><code class="docutils literal notranslate"><span class="pre">EnvironmentVariable.name</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#evar_loader.evar_loader.EnvironmentVariable.transformers"><code class="docutils literal notranslate"><span class="pre">EnvironmentVariable.transformers</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#evar_loader.evar_loader.EnvironmentVariable.validators"><code class="docutils literal notranslate"><span class="pre">EnvironmentVariable.validators</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#evar_loader.evar_loader.EnvironmentVariableLoader"><code class="docutils literal notranslate"><span class="pre">EnvironmentVariableLoader</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#evar_loader.evar_loader.EnvironmentVariableLoader.__call__"><code class="docutils literal notranslate"><span class="pre">EnvironmentVariableLoader.__call__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#evar_loader.evar_loader.EnvironmentVariableLoader.__init__"><code class="docutils literal notranslate"><span class="pre">EnvironmentVariableLoader.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#evar_loader.evar_loader.EnvironmentVariableDefinitions"><code class="docutils literal notranslate"><span class="pre">EnvironmentVariableDefinitions</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#evar_loader.evar_loader.EnvironmentVariableValues"><code class="docutils literal notranslate"><span class="pre">EnvironmentVariableValues</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#evar_loader.evar_loader.Transformer"><code class="docutils literal notranslate"><span class="pre">Transformer</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#evar_loader.evar_loader.Validator"><code class="docutils literal notranslate"><span class="pre">Validator</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Advanced Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transformers.html">Provided Transformers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="validators.html">Provided Validators</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">EVars Loader</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">EVar Loader API</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-evar_loader.evar_loader">
+<span id="evar-loader-api"></span><h1>EVar Loader API<a class="headerlink" href="#module-evar_loader.evar_loader" title="Permalink to this heading"></a></h1>
+<dl class="py exception">
+<dt class="sig sig-object py" id="evar_loader.evar_loader.EVarLoaderError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">EVarLoaderError</span></span><a class="headerlink" href="#evar_loader.evar_loader.EVarLoaderError" title="Permalink to this definition"></a></dt>
+<dd><p>Base class for this projects errors.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="evar_loader.evar_loader.InvalidEnvironmentVariablesError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">InvalidEnvironmentVariablesError</span></span><a class="headerlink" href="#evar_loader.evar_loader.InvalidEnvironmentVariablesError" title="Permalink to this definition"></a></dt>
+<dd><p>Thrown when environment variables are found missing.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="evar_loader.evar_loader.MissingEnvironmentVariablesError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MissingEnvironmentVariablesError</span></span><a class="headerlink" href="#evar_loader.evar_loader.MissingEnvironmentVariablesError" title="Permalink to this definition"></a></dt>
+<dd><p>Thrown when environment variables are found missing.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="evar_loader.evar_loader.EnvironmentVariable">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">EnvironmentVariable</span></span><a class="headerlink" href="#evar_loader.evar_loader.EnvironmentVariable" title="Permalink to this definition"></a></dt>
+<dd><p>Defines an Environment Variable to handle.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="evar_loader.evar_loader.EnvironmentVariable.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_required=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default_val=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transformers=&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validators=&lt;factory&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#evar_loader.evar_loader.EnvironmentVariable.__init__" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – </p></li>
+<li><p><strong>is_required</strong> (<em>bool</em>) – </p></li>
+<li><p><strong>default_val</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
+<li><p><strong>description</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
+<li><p><strong>transformers</strong> (<em>List</em><em>[</em><em>Transformer</em><em>]</em>) – </p></li>
+<li><p><strong>validators</strong> (<em>List</em><em>[</em><em>Validator</em><em>]</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="evar_loader.evar_loader.EnvironmentVariable.default_val">
+<span class="sig-name descname"><span class="pre">default_val</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#evar_loader.evar_loader.EnvironmentVariable.default_val" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="evar_loader.evar_loader.EnvironmentVariable.description">
+<span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#evar_loader.evar_loader.EnvironmentVariable.description" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="evar_loader.evar_loader.EnvironmentVariable.is_required">
+<span class="sig-name descname"><span class="pre">is_required</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="headerlink" href="#evar_loader.evar_loader.EnvironmentVariable.is_required" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="evar_loader.evar_loader.EnvironmentVariable.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#evar_loader.evar_loader.EnvironmentVariable.name" title="Permalink to this definition"></a></dt>
+<dd><p>Name</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="evar_loader.evar_loader.EnvironmentVariable.transformers">
+<span class="sig-name descname"><span class="pre">transformers</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Transformer</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#evar_loader.evar_loader.EnvironmentVariable.transformers" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="evar_loader.evar_loader.EnvironmentVariable.validators">
+<span class="sig-name descname"><span class="pre">validators</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Validator</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#evar_loader.evar_loader.EnvironmentVariable.validators" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="evar_loader.evar_loader.EnvironmentVariableLoader">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">EnvironmentVariableLoader</span></span><a class="headerlink" href="#evar_loader.evar_loader.EnvironmentVariableLoader" title="Permalink to this definition"></a></dt>
+<dd><p>This is the container for your <a class="reference internal" href="#evar_loader.evar_loader.EnvironmentVariable" title="evar_loader.evar_loader.EnvironmentVariable"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnvironmentVariable</span></code></a> definitions,
+along with their eventual loaded config values. Once <code class="xref py py-meth docutils literal notranslate"><span class="pre">load_values()</span></code>
+is ran on an instance of this class, the config values are addressable
+via the Python dict API.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="evar_loader.evar_loader.EnvironmentVariableLoader.__call__">
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#evar_loader.evar_loader.EnvironmentVariableLoader.__call__" title="Permalink to this definition"></a></dt>
+<dd><p>Go through the env var map, transferring the values to this object
+as attributes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p>if a required env var isn’t defined.</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p>RuntimeError if a required env var isn’t defined.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><em>Dict</em>[str, <em>Any</em>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="evar_loader.evar_loader.EnvironmentVariableLoader.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">evar_defs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#evar_loader.evar_loader.EnvironmentVariableLoader.__init__" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>evar_defs</strong> (<em>EnvironmentVariableDefinitions</em>) – Pass in a dict whose keys are config
+names and the values are <a class="reference internal" href="#evar_loader.evar_loader.EnvironmentVariable" title="evar_loader.evar_loader.EnvironmentVariable"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnvironmentVariable</span></code></a>
+instances.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="evar_loader.evar_loader.EnvironmentVariableDefinitions">
+<span class="sig-name descname"><span class="pre">EnvironmentVariableDefinitions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#evar_loader.evar_loader.EnvironmentVariableDefinitions" title="Permalink to this definition"></a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="#evar_loader.evar_loader.EnvironmentVariable" title="evar_loader.evar_loader.EnvironmentVariable"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnvironmentVariable</span></code></a>]</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="evar_loader.evar_loader.EnvironmentVariableValues">
+<span class="sig-name descname"><span class="pre">EnvironmentVariableValues</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#evar_loader.evar_loader.EnvironmentVariableValues" title="Permalink to this definition"></a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">Any</span></code>]</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="evar_loader.evar_loader.Transformer">
+<span class="sig-name descname"><span class="pre">Transformer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#evar_loader.evar_loader.Transformer" title="Permalink to this definition"></a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">Callable</span></code>[[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], <code class="xref py py-obj docutils literal notranslate"><span class="pre">Any</span></code>]</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="evar_loader.evar_loader.Validator">
+<span class="sig-name descname"><span class="pre">Validator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#evar_loader.evar_loader.Validator" title="Permalink to this definition"></a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">Callable</span></code>[[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="#evar_loader.evar_loader.EnvironmentVariable" title="evar_loader.evar_loader.EnvironmentVariable"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnvironmentVariable</span></code></a>], <code class="xref py py-obj docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]</p>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="quickstart.html" class="btn btn-neutral float-left" title="QuickStart" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="usage.html" class="btn btn-neutral float-right" title="Advanced Usage" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Nikhil Reddy.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
