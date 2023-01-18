@@ -15,7 +15,53 @@ Fork (and an unendorsed spiritual successor) of [evarify](https://github.com/gta
 
 ## Usage
 
-- If you want to use this library, you are encouraged to just download the file and include it in your project.
+### Installation
+
+With pip:
+```bash
+python3 -m pip install git+https://github.com/npalladium/env-loader.git
+```
+
+With poetry:
+```bash
+poetry add git+https://github.com/npalladium/env-loader.git
+```
+
+Refer ['pip install' From a Git Repository](https://adamj.eu/tech/2019/03/11/pip-install-from-a-git-repository/) for how this works.
+
+
+### Usage
+
+A simple example:
+```python3
+from env_loader import (
+    EnvironmentVariable,
+    EnvironmentVariableLoader,
+    EnvLoaderError,
+)
+
+env_definitions = {
+    "ENV_VAR1": EnvironmentVariable(name="ENV_VAR1"),
+    "ENV_VAR2": EnvironmentVariable(name="ENV_VAR2_DIFF_NAME"),
+    "ENV_VAR3": EnvironmentVariable(
+        name="ENV_VAR3",
+        is_required=False,
+    ),
+    "ENV_VAR4": EnvironmentVariable(
+        name="ENV_VAR3",
+        default_val="qwertyuiop",
+    ),
+}
+
+load_env = EnvironmentVariableLoader(env_definitions)
+
+env_values = load_env()  # returns a defaultdict
+
+# If ENV_VAR1 and ENV_VAR2_DIFF_NAME are not present, you will get the following error:
+# MissingEnvironmentVariablesError: Missing required environment variables: ['ENV_VAR1', 'ENV_VAR2_DIFF_NAME']
+
+env_var3 = env_values["ENV_VAR3"]
+```
 
 ## Alternatives
 
@@ -26,7 +72,7 @@ Fork (and an unendorsed spiritual successor) of [evarify](https://github.com/gta
 ## TODOs
 
 - [ ] README
-    - [ ] Usage instructions
+    - [x] Usage instructions
     - [ ] Library philosophy, goals and non-goals
 - [ ] Documentation
 - [ ] Tests
