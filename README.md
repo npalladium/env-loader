@@ -2,7 +2,7 @@
 
 This package can create a config dict from environment variables, performing validations and mappings in the process.
 
-Fork (and an unendorsed spiritual successor) of [evarify](https://github.com/gtaylor/evarify).
+Fork (and an unendorsed spiritual successor) of [evarify](https://github.com/gtaylor/evarify). This library is NOT a drop-in replacement for evarify.
 
 ![experimental](http://badges.github.io/stability-badges/dist/experimental.svg)
 
@@ -43,7 +43,6 @@ poetry add git+https://github.com/npalladium/env-loader.git
 ```
 
 Refer ['pip install' From a Git Repository](https://adamj.eu/tech/2019/03/11/pip-install-from-a-git-repository/) for how this works.
-
 
 ### Usage
 
@@ -86,7 +85,7 @@ env_var3 = env_values["ENV_VAR3"]
 
 ## TODOs
 
-- [ ] README
+- [x] README
     - [x] Usage instructions
     - [x] Library philosophy, goals and non-goals
 - [ ] Documentation
@@ -102,5 +101,5 @@ env_var3 = env_values["ENV_VAR3"]
 
 ## License
 
-- The current library is MIT licensed.
+- The current library is licensed under the MIT License.
 - [evarify](https://github.com/gtaylor/evarify) is licensed under the MIT License.
