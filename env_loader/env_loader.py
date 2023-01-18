@@ -15,15 +15,15 @@ EnvironmentVariableDefinitions: TypeAlias = Dict[
 EnvironmentVariableValues: TypeAlias = Dict[str, Any]  #:
 
 
-class EVarLoaderError(Exception):
+class EnvLoaderError(Exception):
     """Base class for this projects errors."""
 
 
-class MissingEnvironmentVariablesError(EVarLoaderError, ValueError):
+class MissingEnvironmentVariablesError(EnvLoaderError, ValueError):
     """Thrown when environment variables are found missing."""
 
 
-class InvalidEnvironmentVariablesError(EVarLoaderError, ValueError):
+class InvalidEnvironmentVariablesError(EnvLoaderError, ValueError):
     """Thrown when environment variables are found missing."""
 
 

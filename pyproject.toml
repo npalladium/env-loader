@@ -1,12 +1,12 @@
 [tool.poetry]
-name = "evar-loader"
+name = "env-loader"
 version = "0.1.0"
 description = ""
 authors = ["Nikhil Pallamreddy"]
 readme = "README.md"
-packages = [{include = "evar_loader"}]
+packages = [{include = "env_loader"}]
 license = "MIT"
-repository = "https://github.com/npalladium/evar-loader"
+repository = "https://github.com/npalladium/env-loader"
 keywords = ["config", "env", "environment variable"]
 classifiers = [
     "Development Status :: 2 - Pre-Alpha",

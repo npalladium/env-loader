@@ -1,6 +1,6 @@
-EVar Loader API
+Env Loader API
 ===============
-.. automodule:: evar_loader.evar_loader
+.. automodule:: env_loader.env_loader
     :members:
     :undoc-members:
     :special-members: __call__

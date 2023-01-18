@@ -1,4 +1,4 @@
-# EVar Loader
+# Env Loader
 
 This package can create a config dict from environment variables, performing validations and mappings in the process.
 

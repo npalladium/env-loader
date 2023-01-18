@@ -3,12 +3,12 @@ Pulls config values from environment variables.
 Checks to make sure we have everything.
 """
 
-from .evar_loader import (
+from .env_loader import (
     EnvironmentVariable,
     EnvironmentVariableDefinitions,
     EnvironmentVariableLoader,
     EnvironmentVariableValues,
-    EVarLoaderError,
+    EnvLoaderError,
     InvalidEnvironmentVariablesError,
     MissingEnvironmentVariablesError,
     Transformer,
@@ -20,7 +20,7 @@ __all__ = [
     "EnvironmentVariableDefinitions",
     "EnvironmentVariableLoader",
     "EnvironmentVariableValues",
-    "EVarLoaderError",
+    "EnvLoaderError",
     "InvalidEnvironmentVariablesError",
     "MissingEnvironmentVariablesError",
     "Transformer",
