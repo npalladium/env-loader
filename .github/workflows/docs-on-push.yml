@@ -1,8 +1,11 @@
-name: Build and Deploy
+name: Build and Publish Docs
 on:
   push:
     branches:
       - main
+    paths:
+      - 'docs/**'
+      - 'env_loader/**'
 jobs:
   build-and-deploy-docs:
     name: Build and publish docs
