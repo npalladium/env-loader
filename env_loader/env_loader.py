@@ -45,7 +45,7 @@ class EnvironmentVariable:
 class EnvironmentVariableLoader:
     """
     This is the container for your :py:class:`EnvironmentVariable` definitions,
-    along with their eventual loaded config values. Once :py:meth:`load_values`
+    along with their eventual loaded config values. Once :py:meth:`__call__`
     is ran on an instance of this class, the config values are addressable
     via the Python dict API.
     """
@@ -116,8 +116,8 @@ class EnvironmentVariableLoader:
         Go through the env var map, transferring the values to this object
         as attributes.
 
-        :raises:  if a required env var isn't defined.
-        :raises: RuntimeError if a required env var isn't defined.
+        :raises InvalidEnvironmentVariablesError: if environment variables do not pass validations.
+        :raises MissingEnvironmentVariablesError: if required environment variables aren't defined.
         """
 
         values_dict = self.__class__.__load(self.__evar_defs)
