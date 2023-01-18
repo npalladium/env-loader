@@ -264,7 +264,7 @@
 <dt class="sig sig-object py" id="env_loader.env_loader.EnvironmentVariableLoader">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">EnvironmentVariableLoader</span></span><a class="headerlink" href="#env_loader.env_loader.EnvironmentVariableLoader" title="Permalink to this definition">¶</a></dt>
 <dd><p>This is the container for your <a class="reference internal" href="#env_loader.env_loader.EnvironmentVariable" title="env_loader.env_loader.EnvironmentVariable"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnvironmentVariable</span></code></a> definitions,
-along with their eventual loaded config values. Once <code class="xref py py-meth docutils literal notranslate"><span class="pre">load_values()</span></code>
+along with their eventual loaded config values. Once <a class="reference internal" href="#env_loader.env_loader.EnvironmentVariableLoader.__call__" title="env_loader.env_loader.EnvironmentVariableLoader.__call__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__call__()</span></code></a>
 is ran on an instance of this class, the config values are addressable
 via the Python dict API.</p>
 <dl class="py method">
@@ -274,13 +274,13 @@ via the Python dict API.</p>
 as attributes.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Raises<span class="colon">:</span></dt>
-<dd class="field-odd"><p>if a required env var isn’t defined.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference internal" href="#env_loader.env_loader.InvalidEnvironmentVariablesError" title="env_loader.env_loader.InvalidEnvironmentVariablesError"><strong>InvalidEnvironmentVariablesError</strong></a> – if environment variables do not pass validations.</p></li>
+<li><p><a class="reference internal" href="#env_loader.env_loader.MissingEnvironmentVariablesError" title="env_loader.env_loader.MissingEnvironmentVariablesError"><strong>MissingEnvironmentVariablesError</strong></a> – if required environment variables aren’t defined.</p></li>
+</ul>
 </dd>
-<dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p>RuntimeError if a required env var isn’t defined.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><em>Dict</em>[str, <em>Any</em>]</p>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>Dict</em>[str, <em>Any</em>]</p>
 </dd>
 </dl>
 </dd></dl>
