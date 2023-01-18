@@ -13,6 +13,21 @@ Fork (and an unendorsed spiritual successor) of [evarify](https://github.com/gta
 - This is currently a pre-alpha stage software that has not yet been used in production, may contain bugs and sharp edges.
 - The package API is also not stable.
 
+## Library Philoosphy
+
+### Goals
+
+- Simple API with sane defaults that is easy to use.
+- Simple Implementation following current industry standard practices.
+- Easy to understand, maintain and fork.
+- Reasonably performant.
+- *Eventually*, a stable API.
+
+### Non-goals
+
+- Extreme performance.
+- Support for other configuration formats such as files (`yaml`, `.env` etc.) or command-line flags.
+
 ## Usage
 
 ### Installation
@@ -73,7 +88,7 @@ env_var3 = env_values["ENV_VAR3"]
 
 - [ ] README
     - [x] Usage instructions
-    - [ ] Library philosophy, goals and non-goals
+    - [x] Library philosophy, goals and non-goals
 - [ ] Documentation
 - [ ] Tests
 - [ ] Improve types
