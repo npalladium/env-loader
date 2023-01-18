@@ -89,7 +89,7 @@
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">QuickStart</a></li>
-<li class="toctree-l1"><a class="reference internal" href="evar_loader.html">Env Loader API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="env_loader.html">Env Loader API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Advanced Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transformers.html">Provided Transformers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="validators.html">Provided Validators</a></li>
@@ -162,14 +162,104 @@
 <h1>EVar Loader’s documentation!<a class="headerlink" href="#evar-loader-s-documentation" title="Permalink to this heading">¶</a></h1>
 <section id="summary">
 <h2>Summary:<a class="headerlink" href="#summary" title="Permalink to this heading">¶</a></h2>
+<p><strong>Exceptions:</strong></p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="env_loader.html#env_loader.env_loader.EnvLoaderError" title="env_loader.env_loader.EnvLoaderError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EnvLoaderError</span></code></a></p></td>
+<td><p>Base class for this projects errors.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="env_loader.html#env_loader.env_loader.InvalidEnvironmentVariablesError" title="env_loader.env_loader.InvalidEnvironmentVariablesError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">InvalidEnvironmentVariablesError</span></code></a></p></td>
+<td><p>Thrown when environment variables are found missing.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="env_loader.html#env_loader.env_loader.MissingEnvironmentVariablesError" title="env_loader.env_loader.MissingEnvironmentVariablesError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MissingEnvironmentVariablesError</span></code></a></p></td>
+<td><p>Thrown when environment variables are found missing.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Classes:</strong></p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="env_loader.html#env_loader.env_loader.EnvironmentVariable" title="env_loader.env_loader.EnvironmentVariable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EnvironmentVariable</span></code></a></p></td>
+<td><p>Defines an Environment Variable to handle.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="env_loader.html#env_loader.env_loader.EnvironmentVariableLoader" title="env_loader.env_loader.EnvironmentVariableLoader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EnvironmentVariableLoader</span></code></a></p></td>
+<td><p>This is the container for your <a class="reference internal" href="env_loader.html#env_loader.env_loader.EnvironmentVariable" title="env_loader.env_loader.EnvironmentVariable"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnvironmentVariable</span></code></a> definitions, along with their eventual loaded config values.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Functions:</strong></p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="transformers.html#env_loader.transformers.comma_separated_str_to_list" title="env_loader.transformers.comma_separated_str_to_list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">comma_separated_str_to_list</span></code></a>(config_val)</p></td>
+<td><p>Splits a comma-separated environment variable into a list of strings.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="transformers.html#env_loader.transformers.comma_separated_to_set" title="env_loader.transformers.comma_separated_to_set"><code class="xref py py-obj docutils literal notranslate"><span class="pre">comma_separated_to_set</span></code></a>(config_val)</p></td>
+<td><p>Splits a comma-separated environment variable into a set of strings.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="transformers.html#env_loader.transformers.value_to_bool" title="env_loader.transformers.value_to_bool"><code class="xref py py-obj docutils literal notranslate"><span class="pre">value_to_bool</span></code></a>(config_val)</p></td>
+<td><p>Massages the 'true' and 'false' strings to bool equivalents.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="transformers.html#env_loader.transformers.value_to_int" title="env_loader.transformers.value_to_int"><code class="xref py py-obj docutils literal notranslate"><span class="pre">value_to_int</span></code></a>(config_val)</p></td>
+<td><p>Convert the value to int.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="transformers.html#env_loader.transformers.value_to_none" title="env_loader.transformers.value_to_none"><code class="xref py py-obj docutils literal notranslate"><span class="pre">value_to_none</span></code></a>(config_val)</p></td>
+<td><p>Given a value that evaluates to a boolean False, return None.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="validators.html#env_loader.validators.validate_is_boolean_true" title="env_loader.validators.validate_is_boolean_true"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_is_boolean_true</span></code></a>(config_val, evar)</p></td>
+<td><p>Make sure the value evaluates to boolean True.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="validators.html#env_loader.validators.validate_is_not_none" title="env_loader.validators.validate_is_not_none"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_is_not_none</span></code></a>(config_val, evar)</p></td>
+<td><p>If the value is <code class="docutils literal notranslate"><span class="pre">None</span></code>, fail validation.</p></td>
+</tr>
+</tbody>
+</table>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">QuickStart</a></li>
-<li class="toctree-l1"><a class="reference internal" href="evar_loader.html">Env Loader API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="env_loader.html">Env Loader API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="env_loader.html#env_loader.env_loader.EnvLoaderError"><code class="docutils literal notranslate"><span class="pre">EnvLoaderError</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="env_loader.html#env_loader.env_loader.InvalidEnvironmentVariablesError"><code class="docutils literal notranslate"><span class="pre">InvalidEnvironmentVariablesError</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="env_loader.html#env_loader.env_loader.MissingEnvironmentVariablesError"><code class="docutils literal notranslate"><span class="pre">MissingEnvironmentVariablesError</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="env_loader.html#env_loader.env_loader.EnvironmentVariable"><code class="docutils literal notranslate"><span class="pre">EnvironmentVariable</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="env_loader.html#env_loader.env_loader.EnvironmentVariable.__init__"><code class="docutils literal notranslate"><span class="pre">EnvironmentVariable.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="env_loader.html#env_loader.env_loader.EnvironmentVariable.default_val"><code class="docutils literal notranslate"><span class="pre">EnvironmentVariable.default_val</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="env_loader.html#env_loader.env_loader.EnvironmentVariable.description"><code class="docutils literal notranslate"><span class="pre">EnvironmentVariable.description</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="env_loader.html#env_loader.env_loader.EnvironmentVariable.is_required"><code class="docutils literal notranslate"><span class="pre">EnvironmentVariable.is_required</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="env_loader.html#env_loader.env_loader.EnvironmentVariable.name"><code class="docutils literal notranslate"><span class="pre">EnvironmentVariable.name</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="env_loader.html#env_loader.env_loader.EnvironmentVariable.transformers"><code class="docutils literal notranslate"><span class="pre">EnvironmentVariable.transformers</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="env_loader.html#env_loader.env_loader.EnvironmentVariable.validators"><code class="docutils literal notranslate"><span class="pre">EnvironmentVariable.validators</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="env_loader.html#env_loader.env_loader.EnvironmentVariableLoader"><code class="docutils literal notranslate"><span class="pre">EnvironmentVariableLoader</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="env_loader.html#env_loader.env_loader.EnvironmentVariableLoader.__call__"><code class="docutils literal notranslate"><span class="pre">EnvironmentVariableLoader.__call__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="env_loader.html#env_loader.env_loader.EnvironmentVariableLoader.__init__"><code class="docutils literal notranslate"><span class="pre">EnvironmentVariableLoader.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="env_loader.html#env_loader.env_loader.EnvironmentVariableDefinitions"><code class="docutils literal notranslate"><span class="pre">EnvironmentVariableDefinitions</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="env_loader.html#env_loader.env_loader.EnvironmentVariableValues"><code class="docutils literal notranslate"><span class="pre">EnvironmentVariableValues</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="env_loader.html#env_loader.env_loader.Transformer"><code class="docutils literal notranslate"><span class="pre">Transformer</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="env_loader.html#env_loader.env_loader.Validator"><code class="docutils literal notranslate"><span class="pre">Validator</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Advanced Usage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="transformers.html">Provided Transformers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="validators.html">Provided Validators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transformers.html">Provided Transformers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="transformers.html#env_loader.transformers.comma_separated_str_to_list"><code class="docutils literal notranslate"><span class="pre">comma_separated_str_to_list()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="transformers.html#env_loader.transformers.comma_separated_to_set"><code class="docutils literal notranslate"><span class="pre">comma_separated_to_set()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="transformers.html#env_loader.transformers.value_to_bool"><code class="docutils literal notranslate"><span class="pre">value_to_bool()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="transformers.html#env_loader.transformers.value_to_int"><code class="docutils literal notranslate"><span class="pre">value_to_int()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="transformers.html#env_loader.transformers.value_to_none"><code class="docutils literal notranslate"><span class="pre">value_to_none()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="validators.html">Provided Validators</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="validators.html#env_loader.validators.validate_is_boolean_true"><code class="docutils literal notranslate"><span class="pre">validate_is_boolean_true()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="validators.html#env_loader.validators.validate_is_not_none"><code class="docutils literal notranslate"><span class="pre">validate_is_not_none()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </div>
 </section>

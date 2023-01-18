@@ -1,5 +1,5 @@
 Provided Transformers
 =====================
-.. automodule:: evar_loader.transformers
+.. automodule:: env_loader.transformers
     :members:
     :undoc-members:

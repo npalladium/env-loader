@@ -90,9 +90,16 @@
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">QuickStart</a></li>
-<li class="toctree-l1"><a class="reference internal" href="evar_loader.html">Env Loader API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="env_loader.html">Env Loader API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Advanced Usage</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Provided Transformers</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Provided Transformers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#env_loader.transformers.comma_separated_str_to_list"><code class="docutils literal notranslate"><span class="pre">comma_separated_str_to_list()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#env_loader.transformers.comma_separated_to_set"><code class="docutils literal notranslate"><span class="pre">comma_separated_to_set()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#env_loader.transformers.value_to_bool"><code class="docutils literal notranslate"><span class="pre">value_to_bool()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#env_loader.transformers.value_to_int"><code class="docutils literal notranslate"><span class="pre">value_to_int()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#env_loader.transformers.value_to_none"><code class="docutils literal notranslate"><span class="pre">value_to_none()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="validators.html">Provided Validators</a></li>
 </ul>
 
@@ -159,8 +166,110 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="provided-transformers">
-<h1>Provided Transformers<a class="headerlink" href="#provided-transformers" title="Permalink to this heading">¶</a></h1>
+  <section id="module-env_loader.transformers">
+<span id="provided-transformers"></span><h1>Provided Transformers<a class="headerlink" href="#module-env_loader.transformers" title="Permalink to this heading">¶</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="env_loader.transformers.comma_separated_str_to_list">
+<span class="sig-name descname"><span class="pre">comma_separated_str_to_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_val</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#env_loader.transformers.comma_separated_str_to_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Splits a comma-separated environment variable into a list of strings.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>config_val</strong> (<em>str</em>) – The env var value.</p></li>
+<li><p><strong>evar</strong> (<a class="reference internal" href="env_loader.html#env_loader.env_loader.EnvironmentVariable" title="env_loader.env_loader.EnvironmentVariable"><em>EnvironmentVariable</em></a>) – The EVar object we are validating
+a value for.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The equivalent list for a comma-separated string.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="env_loader.transformers.comma_separated_to_set">
+<span class="sig-name descname"><span class="pre">comma_separated_to_set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_val</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#env_loader.transformers.comma_separated_to_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Splits a comma-separated environment variable into a set of strings.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>config_val</strong> (<em>str</em>) – The env var value.</p></li>
+<li><p><strong>evar</strong> (<a class="reference internal" href="env_loader.html#env_loader.env_loader.EnvironmentVariable" title="env_loader.env_loader.EnvironmentVariable"><em>EnvironmentVariable</em></a>) – The EVar object we are validating
+a value for.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>set</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The equivalent set for a comma-separated string.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="env_loader.transformers.value_to_bool">
+<span class="sig-name descname"><span class="pre">value_to_bool</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_val</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#env_loader.transformers.value_to_bool" title="Permalink to this definition">¶</a></dt>
+<dd><p>Massages the ‘true’ and ‘false’ strings to bool equivalents.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>config_val</strong> (<em>str</em>) – The env var value.</p></li>
+<li><p><strong>evar</strong> (<a class="reference internal" href="env_loader.html#env_loader.env_loader.EnvironmentVariable" title="env_loader.env_loader.EnvironmentVariable"><em>EnvironmentVariable</em></a>) – The EVar object we are validating
+a value for.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True or False, depending on the value.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="env_loader.transformers.value_to_int">
+<span class="sig-name descname"><span class="pre">value_to_int</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_val</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#env_loader.transformers.value_to_int" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert the value to int.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>config_val</strong> (<em>str</em>) – The env var value.</p></li>
+<li><p><strong>evar</strong> (<a class="reference internal" href="env_loader.html#env_loader.env_loader.EnvironmentVariable" title="env_loader.env_loader.EnvironmentVariable"><em>EnvironmentVariable</em></a>) – The EVar object we are validating
+a value for.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="env_loader.transformers.value_to_none">
+<span class="sig-name descname"><span class="pre">value_to_none</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_val</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#env_loader.transformers.value_to_none" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a value that evaluates to a boolean False, return None.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>config_val</strong> (<em>str</em>) – The env var value.</p></li>
+<li><p><strong>evar</strong> (<a class="reference internal" href="env_loader.html#env_loader.env_loader.EnvironmentVariable" title="env_loader.env_loader.EnvironmentVariable"><em>EnvironmentVariable</em></a>) – The EVar object we are validating
+a value for.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str or None</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Either the non-False value or None.</p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 
 

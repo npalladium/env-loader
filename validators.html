@@ -89,10 +89,14 @@
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">QuickStart</a></li>
-<li class="toctree-l1"><a class="reference internal" href="evar_loader.html">Env Loader API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="env_loader.html">Env Loader API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Advanced Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transformers.html">Provided Transformers</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Provided Validators</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Provided Validators</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#env_loader.validators.validate_is_boolean_true"><code class="docutils literal notranslate"><span class="pre">validate_is_boolean_true()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#env_loader.validators.validate_is_not_none"><code class="docutils literal notranslate"><span class="pre">validate_is_not_none()</span></code></a></li>
+</ul>
+</li>
 </ul>
 
             
@@ -158,8 +162,50 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="provided-validators">
-<h1>Provided Validators<a class="headerlink" href="#provided-validators" title="Permalink to this heading">¶</a></h1>
+  <section id="module-env_loader.validators">
+<span id="provided-validators"></span><h1>Provided Validators<a class="headerlink" href="#module-env_loader.validators" title="Permalink to this heading">¶</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="env_loader.validators.validate_is_boolean_true">
+<span class="sig-name descname"><span class="pre">validate_is_boolean_true</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">evar</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#env_loader.validators.validate_is_boolean_true" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make sure the value evaluates to boolean True.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>config_val</strong> (<em>str</em>) – The env var value.</p></li>
+<li><p><strong>evar</strong> (<a class="reference internal" href="env_loader.html#env_loader.env_loader.EnvironmentVariable" title="env_loader.env_loader.EnvironmentVariable"><em>EnvironmentVariable</em></a>) – The EVar object we are validating
+a value for.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p>ValueError if the config value evaluates to boolean False.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="env_loader.validators.validate_is_not_none">
+<span class="sig-name descname"><span class="pre">validate_is_not_none</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">evar</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#env_loader.validators.validate_is_not_none" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the value is <code class="docutils literal notranslate"><span class="pre">None</span></code>, fail validation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>config_val</strong> (<em>str</em>) – The env var value.</p></li>
+<li><p><strong>evar</strong> (<a class="reference internal" href="env_loader.html#env_loader.env_loader.EnvironmentVariable" title="env_loader.env_loader.EnvironmentVariable"><em>EnvironmentVariable</em></a>) – The EVar object we are validating
+a value for.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p>ValueError if the config value is None.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 
 
