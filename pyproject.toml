@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "env_loader"
-version = "0.1.0"
+version = "0.1.1"
 description = ""
 authors = ["Nikhil Pallamreddy"]
 readme = "README.md"
@@ -9,7 +9,7 @@ license = "MIT"
 repository = "https://github.com/npalladium/env-loader"
 keywords = ["config", "env", "environment variable"]
 classifiers = [
-    "Development Status :: 2 - Pre-Alpha",
+    "Development Status :: 3 - Alpha",
     "Operating System :: POSIX",
     "Operating System :: Unix",
     "Topic :: Utilities",

@@ -4,13 +4,13 @@ This package can create a config dict from environment variables, performing val
 
 Fork (and an unendorsed spiritual successor) of [evarify](https://github.com/gtaylor/evarify). This library is NOT a drop-in replacement for evarify.
 
-![experimental](http://badges.github.io/stability-badges/dist/experimental.svg)
+![unstable](http://badges.github.io/stability-badges/dist/unstable.svg)]
 
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 
 ## Stability
 
-- This is currently a pre-alpha stage software that has not yet been used in production, may contain bugs and sharp edges.
+- This is currently in alpha stage. It may contain bugs and sharp edges.
 - The package API is also not stable.
 
 ## Library Philoosphy
