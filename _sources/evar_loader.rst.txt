@@ -1,4 +1,4 @@
-EVar Loader API
+Env Loader API
 ===============
 .. automodule:: evar_loader.evar_loader
     :members:
